@@ -1,13 +1,13 @@
-##Healthcare API Backend
+**Healthcare API Backend**
 This is the backend for a healthcare application, built with Django and Django REST Framework. It provides a secure API for managing user registration, patients, and doctors.
 
 Local Setup and Installation
-#1. Prerequisites
+**1. Prerequisites**
 Python 3.x
 
 PostgreSQL installed and running.
 
-#2. Initial Setup
+**2. Initial Setup**
 Clone the repository:
 
 `git clone https://github.com/mudasirmattoo/healthcare-api-writebyte.git`
@@ -27,7 +27,7 @@ Install the required packages:
 
 `pip install -r requirements.txt`
 
-#3. Database and Environment Configuration
+**3. Database and Environment Configuration**
 Set up the PostgreSQL database:
 
 In the project's root directory, create a file named .env.
@@ -41,7 +41,7 @@ DB_PASSWORD=your_postgres_password
 DB_HOST=localhost
 DB_PORT=5432`
 
-#4. Final Steps
+**4. Final Steps**
 Run the database migrations:
 `python manage.py makeigrations`
 `python manage.py migrate`
@@ -72,8 +72,8 @@ API Endpoints
 | `/api/patients/<patient_id>/doctors/` | `GET` | Get all doctors assigned to a specific patient. | Yes | No |
 
 
-Testing:
-Use an API client like Postman for testing. I used postman
+**Testing:**
+Use an API client like **Postman** for testing. I used postman
 
 Step 1: Register a user at http://127.0.0.1:8000/api/auth/register/ on browser.
 <img width="1107" height="583" alt="image" src="https://github.com/user-attachments/assets/c7893736-fb05-48f8-9f22-d7b6a0e5718a" />
