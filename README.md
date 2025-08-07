@@ -1,4 +1,4 @@
-#Healthcare API Backend
+##Healthcare API Backend
 This is the backend for a healthcare application, built with Django and Django REST Framework. It provides a secure API for managing user registration, patients, and doctors.
 
 Local Setup and Installation
