@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from .serializers import PatientSerializer, PatientDoctorMappingSerializer, DoctorSerializer, RegisterSerializer
 from .permissions import AdminOrReadOnly, OwnerOrReadOnly
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -69,3 +70,12 @@ class MappingDetailView(generics.RetrieveDestroyAPIView):
     def get_queryset(self):
         return PatientDoctorMapping.objects.filter(patient__user=self.request.user)
 
+class PatientDoctorsListView(generics.ListAPIView):
+    serializer_class = DoctorSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        patient_id = self.kwargs['patient_id']
+        patient = get_object_or_404(Patient, id=patient_id, user=self.request.user)
+        doctor_ids = PatientDoctorMapping.objects.filter(patient=patient).values_list('doctor_id', flat=True)
+        return Doctor.objects.filter(id__in=doctor_ids)

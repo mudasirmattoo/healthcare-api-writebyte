@@ -30,11 +30,11 @@ class DoctorSerializer(serializers.ModelSerializer):
 class PatientDoctorMappingSerializer(serializers.ModelSerializer):
     patient = PatientSerializer(read_only=True)
     doctor = DoctorSerializer(read_only=True)
-    p_id = serializers.PrimaryKeyRelatedField(queryset=Patient.objects.all(),source='patient',write_only=True)
-    d_id = serializers.PrimaryKeyRelatedField(queryset=Doctor.objects.all(),source='doctor',write_only=True)
+    patient_id = serializers.PrimaryKeyRelatedField(queryset=Patient.objects.all(),source='patient',write_only=True)
+    doctor_id = serializers.PrimaryKeyRelatedField(queryset=Doctor.objects.all(),source='doctor',write_only=True)
     class Meta:
         model = PatientDoctorMapping
-        fields = ('id', 'patient', 'doctor', 'p_id', 'd_id', 'assigned_at')
+        fields = ('id', 'patient', 'doctor', 'patient_id', 'doctor_id', 'assigned_time')
         read_only_fields = ('id','assigned_at')
 
     

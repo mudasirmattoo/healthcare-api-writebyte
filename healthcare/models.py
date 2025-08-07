@@ -7,7 +7,7 @@ class Patient(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     date_of_birth = models.DateField()
-    addr = models.TextField()
+    address = models.TextField()
     
     
     def __str__(self):
